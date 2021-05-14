@@ -18,7 +18,7 @@ class Calendar extends Component {
   constructor (props) {
     super(props)
     this.moment = extendMoment(moment)
-    const {selected, channels} = this.props
+    const {selected, channels, assigned} = this.props
     const defaultDate = this.moment(getRealMonthAndYear(this.props.month, this.props.year))
 
     this.state = {
@@ -26,6 +26,7 @@ class Calendar extends Component {
       selected: normalize(selected, this.moment),
       monthDays: setMonthDays(defaultDate, this.moment),
       channels,
+      assigned,
       currentChannel: props.currentChannel || 0,
     }
 
@@ -156,13 +157,14 @@ class Calendar extends Component {
   }
 
   render () {
-    const {defaultDate, monthDays, currentChannel, channels} = this.state
+    const {defaultDate, monthDays, currentChannel, channels, assigned} = this.state
     const reset = this.props.reset ? this.reset : null
     const addChannel = !isNil(this.props.channels) ? this.addChannel : null
     return (
         <MonthComponent
             currentChannel={currentChannel}
             channels={channels}
+            assigned={assigned}
             dayNames={moment.weekdaysMin()}
             days={monthDays}
             selected={this.retrieveSelected()}

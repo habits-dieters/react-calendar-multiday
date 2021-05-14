@@ -6,7 +6,7 @@ import moment from 'moment'
 
 const MonthComponent = props => {
   const { days, dayNames, selected, nextMonth, prevMonth, defaultDate, onClick,
-	         reset, DayComponent, addChannel, channels, currentChannel } = props
+	         reset, DayComponent, addChannel, channels, currentChannel, assigned } = props
   const weeks = splitEvery(7, days)
   return (
       <div className={'o_day-picker'}>
@@ -36,6 +36,7 @@ const MonthComponent = props => {
                         date={d}
                         isToday={moment().format('YYYY-MM-DD') === d.moment.format('YYYY-MM-DD')}
                         isInThePast={d.moment.isBefore(moment(), 'day')}
+                        isAssigned={assigned.indexOf(d.moment.format('YYYY-MM-DD')) > -1 }
                         selected={selected}
                         channels={channels}
                         currentChannel={currentChannel}
@@ -52,12 +53,12 @@ const MonthComponent = props => {
               {'reset'}
             </button>
           }
-          { addChannel &&
+          {/* { addChannel &&
             <button className={'i_day-picker-add-channel'} onClick={addChannel}
             disabled={isNil(channels[currentChannel]) || isEmpty(channels[currentChannel])}>
               {'save channel'}
             </button>
-          }
+          } */}
 	       </div>
       </div>
   )

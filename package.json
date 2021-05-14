@@ -60,9 +60,9 @@
     "yargs": "7.1.0"
   },
   "dependencies": {
-	"moment": "^2.18.1",
-	"moment-range": "^3.0.3",
-	"ramda": "^0.24.1"
+    "moment": "^2.18.1",
+    "moment-range": "^3.0.3",
+    "ramda": "^0.24.1"
   },
   "repository": {
     "type": "git",
