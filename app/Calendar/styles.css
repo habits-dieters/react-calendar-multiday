@@ -140,6 +140,12 @@
 	cursor: not-allowed !important;
 }
 
+.o_day-picker .i_day-picker-row [class*="-assigned"][disabled]:hover{
+	background: #e99d86 !important;
+	color: #000 !important;
+	cursor: not-allowed !important;
+}
+
 .o_selected-current-channel-day {
 	background: #b8e986 !important;
 	color: #000 !important;
